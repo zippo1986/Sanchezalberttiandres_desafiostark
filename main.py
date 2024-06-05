@@ -1,8 +1,11 @@
 from data_stark import lista_personajes
 from funciones import *
-for elemento in lista_personajes:
-    print(elemento.keys())
-listar_por_criterio(lista_personajes)
-mostrar_por_doscriterios(lista_personajes,"nombre","altura")
 
+print(len(lista_personajes))
+confirmacion = "s"
+while confirmacion == "s":
+    opcion = input ("Ingrese opcion")
+    menu_opcion(opcion)
+    confirmacion = input("Desea realizar otra operacion? s/n")
+    
 
