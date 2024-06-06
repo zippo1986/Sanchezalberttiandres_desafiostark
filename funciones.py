@@ -82,7 +82,7 @@ def validar_opcion(opcion):
         retorno = True
     
     return retorno
-def calcular_maximo_dos(lista, atributo):
+def calcular_maximo_dos(lista, atributo, lista_maximo):
     """Calcula los  maximos de determinado atributo dentro de una lista de diccionarios
 
     Args:
@@ -94,18 +94,19 @@ def calcular_maximo_dos(lista, atributo):
     """
     bandera = True
     numero_maximo = None
-    nombre_fuerza_maximo=[]
+    
     # lista para almacenar múltiples elementos máximos
     for i in lista:
-        if  (bandera ==True)or(float(i[atributo]) >(numero_maximo)) :
+        if  (bandera ==True)or((i[atributo]) >(numero_maximo)) :
             
-            numero_maximo =float(i[atributo])
+            numero_maximo =(i[atributo])
             bandera= False
     
     for i in lista:
-        if float(i[atributo])== numero_maximo:
-            nombre_fuerza_maximo.append(i)
-    return nombre_fuerza_maximo
+        if (i[atributo])== numero_maximo:
+            lista_maximo.append(i)
+    
+
 
 def calcular_promedio(lista, atributo_uno):
     """Calcula promedio de dos claves de una lista de diccionarios
@@ -140,10 +141,10 @@ def mostrar_prom(lista,atributo_uno):
         atributo_dos (str): clave del dict
     """
     promedio =calcular_promedio(lista,atributo_uno)
-    print(f"El promedio de peso de los superheroes masculinos es {round(promedio,2)}")
+    print(f"El promedio de peso de los superheroes {round(promedio,2)}")
 
 
-def calcular_minimo(lista, atributo_uno):
+def calcular_minimo(lista, atributo_uno,lista_minimo):
     """Calcula los  minimos de determinado atributo dentro de una lista de diccionarios
 
     Args:
@@ -155,7 +156,7 @@ def calcular_minimo(lista, atributo_uno):
     """
     bandera = True
     numero_minimo = None
-    nombre_fuerza_minimo=[]
+    
     # lista para almacenar múltiples elementos máximos
     for i in lista:
         if  (bandera ==True)or(float(i[atributo_uno]) <(numero_minimo)) :
@@ -165,28 +166,27 @@ def calcular_minimo(lista, atributo_uno):
     
     for i in lista:
         if float(i[atributo_uno])== numero_minimo:
-            nombre_fuerza_minimo.append(i)
+            lista_minimo.append(i)
             
-  
-    return nombre_fuerza_minimo
+def listar_heroes(lista: list) -> None:
+    """Realiza un listado de los heroes
 
-
-def encontrar_mostrar_maximos_minimos(lista:list,operacion):
-
-    """
-    muestra los maximos o los minimos segun la operacio0n necesaria
     Args:
         lista (list): lista de heroes
-        operacion (str): si necesito mostrar el maximo ">" si necesito mostrar los
     """
+    print("***Lista de Heroes***")
+    print("-------------------------------------------" *3)
+    print("nombre                identidad                       empresa     altura  peso    genero  ojos    pelo      fuerza  inteligencia")
+    print("-------------------------------------------" *3)
     
-    match operacion:
-        case ">":
-                maximos = calcular_maximo_dos(lista,"fuerza")
-                mostrar_maximos_minimos(maximos,"identidad","peso")
-        case "<":
-                minimo = (calcular_minimo(lista_personajes,"altura"))
-                mostrar_maximos_minimos(minimo,"identidad", "nombre")
+    # Ordenar la lista de héroes por nombre
+    #lista_ordenada = sorted(lista, key=lambda heroe: heroe['nombre'])
+    
+    for heroe in lista:
+        mostrar_heroe(heroe)
+        
+
+    print("-----------------------------------------"*3)  
 
 def mostrar_heroe(heroe) -> None:
     """Muestra los heroes por aatributo
@@ -209,33 +209,72 @@ def mostrar_heroe(heroe) -> None:
 
 def mostrar_encabezado(mensaje):
     print(mensaje)  
+def mostrar_criterio_heroe(heroe,criterio):
+    print(heroe[criterio])
+    
+def mostrar_criterio_heroes(lista,criterio):
+    for heroe in lista:
+        mostrar_criterio_heroe(heroe,criterio)
+        
+    
 
-def menu_opcion(opcion):
+def menu_opcion():
     """Ejecuta el menu
 
     Args:
         opcion (str): esun str numerico que sirve para matchear el menu
     """
-    stark_normalizar_datos(lista_personajes) 
+    confirmacion = "s"
     
-    bandera = False
-    while (es_numero(opcion)) and (validar_opcion(opcion)) :
+    stark_normalizar_datos(lista_personajes) 
+    maximo = []
+    minimo = []
+    mas_pesado =[]
+    menos_pesado = []
+    
+    while confirmacion =="s":
+        mostrar_encabezado("""Menu de opciones
+                       1) imprimir por consola el nombre de cada superheroe
+                       2) mostrar el nombre y altura de cada superheroe
+                       3) determinar cual es el superheroe mas alto
+                       4) determinar cual es el superheroe mas bajo
+                       5)Determinar la altura promedio de los superheroes
+                       6) informar el nombre de los superheroes indicados anteriormente(Maximo y minimo)
+                        7)cualcular e informar cual es el superheroe mas y menos pesado
+                        
+                       """)
+        opcion = input ("Ingrese opcion")
+        
         match opcion:
             case "1":
                 listar_por_criterio(lista_personajes,"nombre") 
-                break          
+                          
             case "2":
                 
                 mostrar_por_doscriterios(lista_personajes,"nombre","altura")
-                break
-            case "3":
-                heroe=calcular_maximo_dos(lista_personajes, "altura")
-                print(heroe)
-                break
-            case "4":
-                heroe = calcular_minimo(lista_personajes,"altura")
-                print(heroe)
-                break
-            case "5":
                 
-                break
+            case "3":
+                calcular_maximo_dos(lista_personajes, "altura",maximo)
+                
+                
+            case "4":
+                
+                calcular_minimo(lista_personajes,"altura",minimo)
+                
+                
+            case "5":
+                mostrar_prom(lista_personajes, "altura")
+                
+            case "6":
+                
+                listar_por_criterio(maximo,"nombre")
+                listar_por_criterio(minimo,"nombre")
+            case "7":
+                calcular_maximo_dos(lista_personajes,"peso",mas_pesado)
+                calcular_minimo(lista_personajes,"peso",menos_pesado)
+                listar_heroes(mas_pesado)
+                listar_heroes(menos_pesado)
+                
+                
+
+        confirmacion= input("Desea realizar otra operacion? s/n")
