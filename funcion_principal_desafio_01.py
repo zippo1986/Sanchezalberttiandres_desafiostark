@@ -101,7 +101,7 @@ def main():
                 
                
         confirmacion = input("Desea realizar otra operacion")
-        while confirmacion != "s" or confirmacion != "n":
+        while confirmacion != "s" and confirmacion != "n":
             confirmacion = input("Desea realizar otra operacion?")
              
                     
