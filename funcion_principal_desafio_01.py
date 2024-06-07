@@ -13,6 +13,7 @@ def main():
     mas_bajas = []
     
     
+    #agregado
     
     
     while confirmacion == "s":

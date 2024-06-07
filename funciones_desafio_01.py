@@ -310,7 +310,7 @@ def agrupar_conjuntos (lista_personajes, set_datos, atributo):
             if j[f"{atributo}"] == i:
                 mostrar_heroe(j)
                   
-                
+#data                
                 
                 
 def obtener_cantidades(lista_heroes:list,atributo:str ):
