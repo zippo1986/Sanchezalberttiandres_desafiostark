@@ -18,8 +18,10 @@ def main():
     
     while confirmacion == "s":
         menu()
+        
         opcion = input ("ingrese opcion")
-    
+        while not validar_entero(opcion):
+            opcion = ("Ingrese opcion")
         match opcion:
             case "1":
                 
@@ -99,4 +101,7 @@ def main():
                 
                 
         confirmacion = input("Desea realizar otra operacion")
+        while confirmacion != "s" or confirmacion != "n":
+            confirmacion = input("Desea realizar otra operacion?")
+             
                     
