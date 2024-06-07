@@ -276,5 +276,7 @@ def menu_opcion():
                 listar_heroes(menos_pesado)
                 
                 
-
+            
         confirmacion= input("Desea realizar otra operacion? s/n")
+        while confirmacion != "s" and confirmacion !=:
+            confirmacion = input("Desea realizar otra operacion? s/n)
