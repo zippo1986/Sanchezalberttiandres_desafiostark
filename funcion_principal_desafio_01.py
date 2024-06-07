@@ -99,7 +99,7 @@ def main():
             case "15":
                 agrupar_conjuntos(lista_personajes,obtener_set(lista_personajes,"inteligencia"),"inteligencia")
                 
-                
+               
         confirmacion = input("Desea realizar otra operacion")
         while confirmacion != "s" or confirmacion != "n":
             confirmacion = input("Desea realizar otra operacion?")
