@@ -6,6 +6,11 @@ def main():
     bandera = False
     lista_femeninas = []
     lista_masculinos =[]
+    bandera_mas_altos = False
+    bandera_mas_bajos = False
+    bandera_mas_altas = False
+    bandera_mas_bajas = False
+    
     
     mas_altos = []
     mas_altas=[]
@@ -37,22 +42,26 @@ def main():
                 
                 calcular_maximo_dos(lista_masculinos,"altura",mas_altos)
                 listar_heroes(mas_altos)
+                bandera_mas_altos = True
                 
                 #listar_heroes(lista_fem_mas_altas)
                 
             case "4":
                 calcular_maximo_dos(lista_femeninas,"altura",mas_altas)
                 listar_heroes(mas_altas)
+                bandera_mas_altas = True
                 
 
                 
             case "5":
                 calcular_minimo(lista_masculinos,"altura",mas_bajos)
                 listar_heroes(mas_bajos)
+                bandera_mas_bajos = True
                 
             case "6":
                 calcular_minimo(lista_femeninas,"altura",mas_bajas)
                 listar_heroes(mas_bajas)
+                bandera_mas_bajas = True
                     
             case "7":
                    
@@ -61,33 +70,24 @@ def main():
                     
             case "8":
                  promedio_altura_f = calcular_promedio_dos(lista_femeninas,"altura")
-                 mostrar_encabezado(f"La altura promedio de los superheroes masculinos es: {round(promedio_altura_m)}")
+                 mostrar_encabezado(f"La altura promedio de los superheroes femeninos es: {round(promedio_altura_f)}")
                 
             case "9":
-                
-                listar_por_criterio(mas_altos,"nombre")
-                listar_por_criterio(mas_altas,"nombre")
-                listar_por_criterio(mas_bajos,"nombre")
-                listar_por_criterio(mas_bajas,"nombre")
-                
-                
-                
-            
-                
+                if bandera_mas_altos and bandera_mas_altas and bandera_mas_bajos and bandera_mas_bajas:
+                    listar_por_criterio(mas_altos,"nombre")
+                    listar_por_criterio(mas_altas,"nombre")
+                    listar_por_criterio(mas_bajos,"nombre")
+                    listar_por_criterio(mas_bajas,"nombre")
+                else:
+                    mostrar_encabezado("no se pueden mostrar los resultados sin haber realizado las operaciones anteriores")
             case "10":
-                obtener_cantidades(lista_personajes,"color_ojos")
-                
-                
-                
+                obtener_cantidades(lista_personajes,"color_ojos")   
             case "11":
                 obtener_cantidades(lista_personajes,"color_pelo")
                 
                     
             case "12":
                 obtener_cantidades(lista_personajes,"inteligencia")
-                
-                
-                
                 
             case "13":
                 
