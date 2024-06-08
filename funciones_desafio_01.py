@@ -196,7 +196,7 @@ def calcular_promedio_dos(lista:list, key:str):
         cantidad = cantidad + 1
     promedio = dividir(sumar_dato_heroe(lista,key), cantidad)
     return promedio
-def calcular_minimo(lista, atributo_uno):
+def calcular_minimo(lista, atributo_uno,lista_minimo):
     """Calcula los  minimos de determinado atributo dentro de una lista de diccionarios
 
     Args:
@@ -207,17 +207,18 @@ def calcular_minimo(lista, atributo_uno):
         list: retorna una lista de diccionarios que contiene los heroes del minimo en determinado atributo
     """
     bandera = True
-    heroe_atributo_minimo =[]
     numero_minimo = None
-    # lista para almacenar múltiples elementos máximos
-    if lista is not None and atributo_uno is not None:
-        
-        for i in lista:
-            if  (bandera ==True)or(int(i[atributo_uno]) <(numero_minimo)) :
-                numero_minimo =(i[atributo_uno])
-                bandera= False
     
-    return numero_minimo            
+    # lista para almacenar múltiples elementos máximos
+    for i in lista:
+        if  (bandera ==True)or(float(i[atributo_uno]) <(numero_minimo)) :
+            
+            numero_minimo =float(i[atributo_uno])
+            bandera= False
+    
+    for i in lista:
+        if float(i[atributo_uno])== numero_minimo:
+            lista_minimo.append(i)            
 
     
 
@@ -382,18 +383,21 @@ def menu():
     """
     Muestra el menu
     """
-    print("""1. Normalizar datos (No se debe poder acceder a los otros puntos)
-A. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe de
+    print("""
+1. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe de
 género M
-B. Recorrer la lista y determinar cuál es el superhéroe más alto de género F
-C. Recorrer la lista y determinar cuál es el superhéroe más alto de género M
-D. Recorrer la lista y determinar cuál es el superhéroe más débil de género M
-E. Recorrer la lista y determinar cuál es el superhéroe más débil de género NB
-F. Recorrer la lista y determinar la fuerza promedio de los superhéroes de
-género NB
-G. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
-H. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
-I. Listar todos los superhéroes agrupados por color de ojos.
-J. Listar todos los superhéroes agrupados por tipo de inteligencia
-K. Salir del programa""")
+2. Recorrer la lista imprimiendo por consola el nombre de cada superheroe de genero F
+3. Recorrer la lista y determinar cuál es el superhéroe más alto del género M
+4. Recorrer la lista y determinar cuál es el superhéroe más alto del género F
+5. Recorrer la lista y determinar cuál es el superhéroe más bajo del género M
+6. Recorrer la lista y determinar cual es el superheroe mas bajo del género F
+7. Recorrer la lista y determinar la altura promedio de los superheros de genero M
+8. Recorrer la lista y determinar la altura promedio de los superheroes de genero 
+9. informar el Nombre del superheroe asociado a cada uno de los indicadores anteriores (Items C a F)
+10. Determinar cuantos duperheroes tienen cada tipo de color de ojos
+11. Determinar cuantos duperheroes tienen cada tipo de color de pelo
+12. Determinar cuantos superheroes tienen cada tipo de inteligencia (En caso de no tener inicializarlo con "No tiene")
+13. listar todos los superheroes agrupados por color de ojos
+14. Listar todos los superheroes por color de pelo
+15.Listar todos los superhéroes agrupados por tipo de inteligencia""")
     
