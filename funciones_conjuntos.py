@@ -1,3 +1,5 @@
+
+from funciones_informes import *
 def obtener_set(lista:list, atributo:str):
     set_datos= set()
 

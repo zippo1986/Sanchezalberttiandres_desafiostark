@@ -1,4 +1,9 @@
 from funciones_desafio_01 import *
+from funciones_calculos import *
+from funciones_conjuntos import *
+from funciones_informes import *
+from lib_filtrados import *
+from funciones_calculos import *
 def main():
     
     stark_normalizar_datos(lista_personajes)
@@ -25,7 +30,7 @@ def main():
         menu()
         
         opcion = input ("ingrese opcion")
-        while not validar_entero(opcion):
+        while not validar_entero(opcion) or (validar_opcion(opcion)):
             opcion = ("Ingrese opcion")
         match opcion:
             case "1":

@@ -7,7 +7,7 @@ bandera = False
 def stark_normalizar_datos(lista_heroes):
     """_summary_
     # Valida que la lista de héroes no esté vacía
-    
+    #Inicializa la inteligencia vacio con "No tiene"
     # Recorre la lista de héroes
     # Recorre las keys de cada héroe
     # Valida que la key represente un dato numérico y que no sea None
@@ -38,6 +38,20 @@ def stark_normalizar_datos(lista_heroes):
                     
     if modificado:
         print("Datos normalizados")
+def validar_opcion(opcion):
+    """Valida rango de opcion
+
+    Args:
+        opcion (str): opcion elegida
+
+    Returns:
+        bool: retorna un booleano que define si entra al menu o no
+    """
+    retorno = False
+    if not ((int(opcion) > 15) or (int(opcion) <= 0)):
+        retorno = True
+    
+    return retorno
 def validar_entero(numero:str):
     """_summary_
     Valida que el numero pasado por str sea enttero
@@ -121,27 +135,7 @@ def obtener_dato_cantidad(lista,numero,key):
             lista_heroes_cantidad.append(i)
     return lista_heroes_cantidad
 #Biblioteca calculos
-def calcular_maximo(lista, atributo):
-    """Calcula los  maximos de determinado atributo dentro de una lista de diccionarios
 
-    Args:
-        lista (list):lista de heroes
-        atributo (str): la clave del diccionario de la que se quiere sacar el maximo
-
-    Returns:
-        list: retorna una lista de diccionarios que contiene los heroes del maximo en determinado atributo
-    """
-    bandera = True
-    numero_maximo = None
-    
-    if lista is not None and atributo is not None:
-    # lista para almacenar múltiples elementos máximos
-        for i in lista:
-            if  (bandera ==True)or((i[atributo]) >(numero_maximo)) :
-                numero_maximo =(i[atributo])
-                bandera= False
-        
-    return numero_maximo
 
 def sumar_dato_heroe(lista:list, key: str):
     """_summary_
@@ -218,7 +212,20 @@ def calcular_minimo(lista, atributo_uno,lista_minimo):
         if float(i[atributo_uno])== numero_minimo:
             lista_minimo.append(i)            
 
+def validar_opcion(opcion):
+    """Valida rango de opcion
+
+    Args:
+        opcion (str): opcion elegida
+
+    Returns:
+        bool: retorna un booleano que define si entra al menu o no
+    """
+    retorno = False
+    if not ((int(opcion) > 7) or (int(opcion) <= 0)):
+        retorno = True
     
+    return retorno    
 
 def filtrar_datos(lista, valor, key,lista_filtro):
     """Filtra por valor de una determinada clave
@@ -231,16 +238,26 @@ def filtrar_datos(lista, valor, key,lista_filtro):
     Returns:
         list: retorna una lista de diccionarios con los valores filtrados 
     """
-    
-    
     if lista and valor is not None:
         for i in lista:
             if i[key] ==valor:
                 lista_filtro.append(i)
     
         
-#Biblioteca mostrar datos
+def validar_opcion(opcion):
+    """Valida rango de opcion
 
+    Args:
+        opcion (str): opcion elegida
+
+    Returns:
+        bool: retorna un booleano que define si entra al menu o no
+    """
+    retorno = False
+    if not ((int(opcion) > 15) or (int(opcion) <= 0)):
+        retorno = True
+    
+    return retorno
 
 
 
