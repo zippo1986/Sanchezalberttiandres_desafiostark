@@ -8,13 +8,13 @@ def obtener_set(lista:list, atributo:str):
     
     return set_datos
 def agrupar_conjuntos (lista_personajes, set_datos, atributo):
-#agrupar_conjuntos
-#Esta funcion toma una lista de personajes toma una lista de datos y un atributo
-#itera por el set de datos que es un set convertido a lista en la misma llamada
-# recorre la lista de personajes y compara 
-# Luego agrega los nombres de los personajes cuyos valores del atributo pasado por
-# parametro y son iguales, a una lista
-#Es una función completamente reutilizable
+    """Agrupa conjuntos por un set de datos y un atributo
+
+    Args:
+        lista_personajes (list): lista de personajes
+        set_datos (set): set de valores unicos  de datos
+        atributo (str):  la clave por la cual se quiere agrupar los datos
+    """
     nombres= []
     for i in set_datos:
         print("*" *133)
@@ -24,7 +24,7 @@ def agrupar_conjuntos (lista_personajes, set_datos, atributo):
             if j[f"{atributo}"] == i:
                 mostrar_heroe(j)
                   
-#data                
+                
                 
                 
 def obtener_cantidades(lista_heroes:list,atributo:str ):
