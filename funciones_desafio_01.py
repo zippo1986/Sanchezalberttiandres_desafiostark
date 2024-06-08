@@ -31,12 +31,10 @@ def stark_normalizar_datos(lista_heroes):
                     heroe[key] = tipos_dato[key](heroe[key])
                     modificado = True
     for i in lista_heroes:
-        if i["color_ojos"] == "Yellow (without irises)":
-            i["color_ojos"] = "Yellow2"
-        if i["color_pelo"] == "Red / Orange":
-            i["color_pelo"] = "R/0"
-        elif i["color_pelo"] == "Brown / White":
-            i["color_pelo"] = "B/W"
+        
+        if i["inteligencia"] == "":
+            i["inteligencia"] = "No tiene"
+        
                     
     if modificado:
         print("Datos normalizados")
@@ -242,135 +240,19 @@ def filtrar_datos(lista, valor, key,lista_filtro):
     
         
 #Biblioteca mostrar datos
-def listar_heroes(lista: list) -> None:
-    """Realiza un listado de los heroes
 
-    Args:
-        lista (list): lista de heroes
-    """
-    print("***Lista de Heroes***")
-    print("-------------------------------------------" *3)
-    print("nombre                identidad                       empresa     altura  peso    genero  ojos    pelo      fuerza  inteligencia")
-    print("-------------------------------------------" *3)
+
+
+
+
+
+
+
+  
     
-    # Ordenar la lista de héroes por nombre
-    #lista_ordenada = sorted(lista, key=lambda heroe: heroe['nombre'])
-    
-    for heroe in lista:
-        mostrar_heroe(heroe)
-        
 
-    print("-----------------------------------------"*3)
-def mostrar_nombre(lista):
-    for i in lista:
-        print(i["nombre"])
-def mostrar_heroe(heroe) -> None:
-    """Muestra los heroes por aatributo
-
-    Args:
-        heroe (dict): diccionario de heroe
-    """
-    print(
-        f"{heroe['nombre']:18}| "
-        f"{heroe['identidad']:29}| "
-        f"{heroe['empresa']:3}| "
-        f"{heroe['altura']:6}|"
-        f"{heroe['peso']:8}|"
-        f"{heroe['genero']:6}|"
-        f"{heroe['color_ojos']:8}|"
-        f"{heroe['color_pelo']:8}|"
-        f"{heroe['fuerza']:-8}|"
-        f"{heroe['inteligencia']:13}|"
-    )
-
-
-
-def obtener_set(lista:list, atributo:str):
-    set_datos= set()
-
-    for i in lista:
-        set_datos.add(i[f"{atributo}"])
-    
-    return set_datos
-
-
-def agrupar_conjuntos (lista_personajes, set_datos, atributo):
-#agrupar_conjuntos
-#Esta funcion toma una lista de personajes toma una lista de datos y un atributo
-#itera por el set de datos que es un set convertido a lista en la misma llamada
-# recorre la lista de personajes y compara 
-# Luego agrega los nombres de los personajes cuyos valores del atributo pasado por
-# parametro y son iguales, a una lista
-#Es una función completamente reutilizable
-    nombres= []
-    for i in set_datos:
-        print("*" *133)
-        print(i)
-        print("*" *133)
-        for j in lista_personajes:
-            if j[f"{atributo}"] == i:
-                mostrar_heroe(j)
-                  
-#data                
-                
-                
-def obtener_cantidades(lista_heroes:list,atributo:str ):
-    """obtiene cantidades por marca
-
-    Args:
-        lista_ins (list): lista de diccionarios de insumos
-        lista_cat (list): lista de categorias
-        atributo (str):clave
-    """
-    lista_cat = obtener_set(lista_heroes, atributo)
-    contador = 0
-    print("*"*20)
-    print(f"{atributo}       Cantidad")
-    print("*"*20)
-    for i in lista_cat:
-        for heroe in lista_heroes :
-            if heroe[atributo] == i:
-                contador = contador+1
-        
-        print(f"{i:<16} {contador:<4}")
-        
-        contador =0
-def mostrar_encabezado(mensaje):
-    print(mensaje)  
-    
-def calcular_maximo_dos(lista, atributo, lista_maximo):
-    """Calcula los  maximos de determinado atributo dentro de una lista de diccionarios
-
-    Args:
-        lista (list):lista de heroes
-        atributo (str): la clave del diccionario de la que se quiere sacar el maximo
-
-    Returns:
-        list: retorna una lista de diccionarios que contiene los heroes del maximo en determinado atributo
-    """
-    bandera = True
-    numero_maximo = None
-    
-    # lista para almacenar múltiples elementos máximos
-    for i in lista:
-        if  (bandera ==True)or((i[atributo]) >(numero_maximo)) :
             
-            numero_maximo =(i[atributo])
-            bandera= False
-    
-    for i in lista:
-        if (i[atributo])== numero_maximo:
-            lista_maximo.append(i)
-def mostrar_heroe_criterio(heroe, criterio):
-    
-    print (heroe[criterio])
-def listar_por_criterio(lista,criterio):
-    mostrar_encabezado("----------------------")
-    mostrar_encabezado(f"**{criterio.upper()}**")
-    mostrar_encabezado("----------------------")
 
-    for heroe in lista:
-        mostrar_heroe_criterio(heroe,criterio)
     
 #Biblioteca ejecucion programa
 
